@@ -8,7 +8,7 @@ import requests
 
 nest_asyncio.apply()
 
-# Configure
+# configure
 c = twint.Config()
 
 
@@ -18,6 +18,7 @@ c.Pandas = True
 
 c.Hide_output = True
 
+#store information
 c.Store_csv = True
 c.Output = 'womensmarch_2016.txt'
 
@@ -28,28 +29,12 @@ df = pd.read_csv('womensmarch_2016.txt', sep=',')
 
 df.info()
 
+#sort retweets, likes, and discussions and then date in descending order
 df.sort_values(by= ['retweets_count', 'likes_count', 'replies_count', 'date'], ascending = False)
 
 html = df.to_html() 
-display(HTML(html))
 
-
-
-# assign it to a  
-# variable (string) 
-#html_file = df.to_html()
-#
-
-#def show_tweet(link):
- #   '''Display the contents of a tweet. '''
- #   url = 'https://publish.twitter.com/oembed?url=%s' % link
- #   response = requests.get(url)
- #   html = response.json()["html"]
- #   display(HTML(html))
-    
-    
-    
-#sample_tweet_link = df.sample(20)['link'].values[0]
-#display(sample_tweet_link)
-#show_tweet(sample_tweet_link)
-
+#show the table in a simple web interface
+text_file = open("index.html", "w")
+text_file.write(html)
+text_file.close()
