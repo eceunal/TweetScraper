@@ -28,11 +28,17 @@ df = pd.read_csv('womensmarch_2016.txt', sep=',')
 
 df.info()
 
-df.to_html("Table.htm") 
+df.sort_values(by= ['retweets_count', 'likes_count', 'replies_count', 'date'], ascending = False)
+
+html = df.to_html() 
+display(HTML(html))
+
+
+
 # assign it to a  
 # variable (string) 
-html_file = df.to_html()
-display(HTML(html_file))
+#html_file = df.to_html()
+#
 
 #def show_tweet(link):
  #   '''Display the contents of a tweet. '''
