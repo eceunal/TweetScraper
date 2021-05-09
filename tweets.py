@@ -30,7 +30,7 @@ df = pd.read_csv('womensmarch_2016.txt', sep=',')
 df.info()
 
 #sort retweets, likes, and discussions and then date in descending order
-df.sort_values(by= ['retweets_count', 'likes_count', 'replies_count', 'date'], ascending = False)
+df.sort_values(by= ['retweets_count', 'likes_count', 'replies_count', 'date'], ascending = False,  inplace=True)
 
 html = df.to_html() 
 
