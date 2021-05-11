@@ -12,7 +12,7 @@ nest_asyncio.apply()
 c = twint.Config()
 
 
-c.Search = 'request for startup'
+c.Search = 'doja cat is god'
 c.Limit = 20
 c.Pandas = True
 
